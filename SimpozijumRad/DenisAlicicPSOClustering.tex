@@ -6,6 +6,7 @@
 \usepackage[T2A]{fontenc} % enable Cyrillic fonts
 \usepackage[utf8]{inputenc} % make weird characters work
 \usepackage{graphicx}
+\usepackage{multirow}
 
 \usepackage[english,serbian]{babel}
 
@@ -65,7 +66,7 @@
 \maketitle
 
 \abstract{
-U ovom radu je opisan razvijeni algoritam klasterovanja zasnovan na optimaciji rojem čestica \cite{pso}. Algoritam je zasnovan na centroidima, slično algoritmu K sredina. Najvažniji parametar algoritma je funkcija kvaliteta klasterovanja koja se optimizuje i time određuje tip klastera. Jedna čestica predstavlja niz centroida dužine k, zadate kao maksimalan broj klastera.
+U ovom radu je opisan razvijeni algoritam za rešavanje problema klasterovanja zasnovan na optimaciji rojem čestica \cite{pso}. Algoritam je zasnovan na centroidima, slično algoritmu K sredina. Najvažniji parametar algoritma je funkcija kvaliteta klasterovanja koja se optimizuje i time određuje tip klastera. Jedna čestica predstavlja niz centroida dužine k, zadate kao maksimalan broj klastera.
 U svakoj iteraciji algoritma se svakoj instanci iz skupa podataka dodeli klaster na osnovu najbližeg centroida. Funkcija udaljenosti se takođe prosleđuje algoritmu i od nje zavisi oblik klastera. Zatim se primenjuje funkcija kvaliteta i na osnovu pozicije najbolje čestice i najbolje pozicije trenutne čestice pomeri centroid svakoj čestici u skladu sa originalnim PSO (eng.~{\em Particle swarm optimization}) algoritmom.\\  
 Prikazani su eksperimenti na nekim poznatim skupovima podataka, kao i na sintetičkim podacima u dvodimenzionalnom prostoru radi vizuelizacije.
 
@@ -191,19 +192,33 @@ Algoritam je generički u smislu izbora funkcije daljine i funkcije evaluacije k
 Važan deo svakog algoritma optimizacije je njegova sposobnost pretrage širokog prostora rešenja u odnosu na postizanje lokalnog optimuma u nekoj manjoj oblasti. Kod PSO algoritma ovaj problem je rešen korišćenjem dva parametra koji se odnose na kognitivnu i sociološku komponentu.
 Kognitivna komponenta čestice daje značajnost njenoj najboljoj poziciji, dok se sociološka komponenta odnosi na najbolju poziciju celog roja.
 Menjanjem vrednosti ove dve komponente, koje su realni brojevi, balansira se izmedju nalaženja globalnog i lokalnog optimuma.\\
-\begin{figure}[h!]
-	\begin{center}
-	\includegraphics[scale=0.5]{razvojno_stablo}
-	\caption{MVC arhitektura}	
-	\label{fig:MVC}
-	\end{center}
-\end{figure}
+%\begin{figure}[h!]
+	%\begin{center}
+	%\includegraphics[scale=0.5]{razvojno_stablo}
+	%\caption{MVC arhitektura}	
+	%\label{fig:MVC}
+	%\end{center}
+%\end{figure}
 
 \section{Eksperimentalni rezultati}
+Algoritam za rešavanje problema klasterovanja, razvijen za potrebe ovog rada, je testiran na poznatim skupovima podataka: IRIS i WINE. U eksperimentima su upoređeni rezultati algoritma K sredina sa PSO algoritmom. Vrednosti prikazane u tabeli \ref{tabela} predstavljaju vrednosti funkcija evaluacije klasterovanja, koje su detaljno opisane u \ref{sec:db} i \ref{sec:ch}.\\
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[]
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{\textbf{Algoritam}}      & \multicolumn{4}{c|}{\textbf{IRIS}}                                          & \multicolumn{4}{c|}{\textbf{WINE}}                                  \\ \cline{2-9} 
+                                         & \multicolumn{2}{c|}{\textbf{DB}} & \multicolumn{2}{c|}{\textbf{CZ}}         & \multicolumn{2}{c|}{\textbf{DB}} & \multicolumn{2}{c|}{\textbf{CZ}} \\ \cline{2-9} 
+                                         & c         & index                & c & index                                & c         & index                & c         & index                \\ \hline
+\multicolumn{1}{|c|}{\textbf{K Sredina}} & 2         & 0.40                & 3 & 561.62                               & 3         & 0.53                 & 3         & 561                  \\ \hline
+\multicolumn{1}{|c|}{\textbf{PSO}}       & 2         & \textbf{0.28}        & 3 & \multicolumn{1}{l|}{\textbf{575.69}} & 3         & \textbf{0.47}        & 3         & \textbf{576}         \\ \hline
+\end{tabular}
+\end{table}
 
 \section{Zaključak}
 \label{sec:zakljucak}
-U ovom radu su opisane najvažnije osobine i koncepti jezika. Objective-C predstavlja osnovu operativnih sistema koji su u širokoj upotrebi i kao takav će i u budućnosti zauzimati zapaženo mesto u svetu informatike. Trajanje (skoro 40 godina) svedoči o kvalitetu jezika. Rad prestavlja podstrek za dalje istraživanje mogućnosti i funkcionalnosti jezika i njegovih okruženja.  
+ 
 \addcontentsline{toc}{section}{Literatura}
 \appendix
 \bibliography{DenisAlicicPSOClustering} 
