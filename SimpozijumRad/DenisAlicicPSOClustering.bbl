@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{db_index}
+David~L. Davies and D.~Bouldin.
+\newblock A cluster separation measure.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  PAMI-1:224--227, 1979.
+
+\bibitem{dunn}
+J.~C. Dunn†.
+\newblock Well-separated clusters and optimal fuzzy partitions.
+\newblock {\em Journal of Cybernetics}, 4(1):95--104, 1974.
+
+\bibitem{ch_score}
+Calinski~T Harabasz and M~Karo{\'n}ski.
+\newblock A dendrite method for cluster analysis.
+\newblock In {\em Communications in Statistics}, volume~3, pages 1--27. 1974.
+
+\bibitem{pso}
+J.~Kennedy and R.~Eberhart.
+\newblock Particle swarm optimization.
+\newblock In {\em Proceedings of ICNN'95 - International Conference on Neural
+  Networks}, volume~4, pages 1942--1948 vol.4, 1995.
+
+\bibitem{ml_mladen}
+M.~Nikolić.
+\newblock {\em {Mašinsko učenje}}.
+\newblock 2019.
+
+\end{thebibliography}
