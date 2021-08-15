@@ -1,80 +1,62 @@
-% !TEX encoding = UTF-8 Unicode
-\documentclass[a4paper, twocolumn]{article}
+%Ovo je šablon za generisanje rada za SYMOPIS.
 
-\usepackage{color}
-\usepackage{url}
-\usepackage[T2A]{fontenc} % enable Cyrillic fonts
-\usepackage[utf8]{inputenc} % make weird characters work
-\usepackage{graphicx}
-\usepackage{multirow}
+\documentclass[a4paper,serbian]{symopissr}
 
-\usepackage[english,serbian]{babel}
-
-\usepackage[unicode]{hyperref}
-\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
-
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,latexsym}
+\usepackage{microtype}%if unwanted, comment out or use option "draft"
+\usepackage{pslatex}
+\usepackage{units}
 \usepackage{listings}
 \usepackage[ruled,vlined,croatian,onelanguage]{algorithm2e}
-
 \SetKwInput{KwInput}{Ulaz}                % Set the Input
 \SetKwInput{KwOutput}{Izlaz}
-%SetKw{KwResult}{Rezultat}
-%\SetKw{}{radi}
-\definecolor{mygreen}{rgb}{0,0.6,0}
-\definecolor{mygray}{rgb}{0.5,0.5,0.5}
-\definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\lstset{ 
-  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
-  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-  breaklines=true,                 % sets automatic line breaking
-  captionpos=b,                    % sets the caption-position to bottom
-  commentstyle=\color{mygreen},    % comment style
-  deletekeywords={...},            % if you want to delete keywords from the given language
-  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  firstnumber=1000,                % start line enumeration with line 1000
-  frame=single,	                   % adds a frame around the code
-  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  keywordstyle=\color{blue},       % keyword style
-  language=Python,                 % the language of the code
-  morekeywords={*,...},            % if you want to add more keywords to the set
-  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-  numbersep=5pt,                   % how far the line-numbers are from the code
-  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
-  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-  showstringspaces=false,          % underline spaces within strings only
-  showtabs=false,                  % show tabs within strings adding particular underscores
-  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
-  stringstyle=\color{mymauve},     % string literal style
-  tabsize=2,	                   % sets default tabsize to 2 spaces
-  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+\bibliographystyle{apalike}% the recommended bibstyle  
+
+\title{GENERIČKI ALGORITAM KLASTEROVANJA ZASNOVAN NA OPTIMIZACIJI ROJEM ČESTICA\\GENERIC CLUSTER ALGORITHM BASED ON PARTICLE SWARM OPTIMIZATION}
+\titlerunning{Primer rada za SYM-OP-IS} %opciono
+
+\author[1]{DENIS ALIČIĆ}
+\author[2]{FILIP VIDOJEVIĆ}
+\author[3]{DUŠAN DŽAMIĆ}
+\author[4]{MIROSLAV MARIĆ}
+\affil[1]{Matematički fakultet, 
+          Studentski trg 16, Beograd, Srbija,
+          denis\char`_alicic@matf.bg.ac.rs}
+\affil[2]{Matematički fakultet, 
+          Studentski trg 16, Beograd, Srbija,
+          filip\char`_vidojevic@matf.bg.ac.rs
 }
+\affil[3]{Fakultet organizacionih nauka,
+		  Jova Ilića 154, Beograd, Srbija,
+		  dusan.dzamic@fon.bg.ac.rs}
+\affil[4]{Matematički fakultet, 
+          Studentski trg 16, Beograd, Srbija,
+          maricm@matf.bg.ac.rs}
+
+\keywords{klasterovanje, optimizacija, pso, k-sredina}% obavezno: Molimo Vas navedite 4-5 ključnih reči
+\keywordsen{clustering, optimization, pso, k-means}% mandatory: Please provide 4-5 keywords
 
 \begin{document}
-  
-
-
-\title{Generički algoritam klasterovanja zasnovan na optimizaciji rojem čestica\\
-\small{XLVIII Međunarodni simpozijum\\ o operacionim istraživanjima}}
-
-\author{Denis Aličić, Filip Vidojević, Dušan Džamić, Miroslav Marić
-\\denis\char`_alicic@matf.bg.ac.rs, filip\char`_vidojevic@matf.bg.ac.rs, dusan.dzamic@fon.bg.ac.rs,\\ maricm@matf.bg.ac.rs\\}
 
 \maketitle
 
-\abstract{
+
+\begin{abstract}
 U ovom radu je predložen algoritam za rešavanje problema klasterovanja zasnovan na optimaciji rojem čestica \cite{pso}. Osnovna ideja algortima, kao i kod algoritma K sredina, je centroid \cite{kmeans}. Najvažniji parametar algoritma je funkcija kvaliteta klasterovanja koja se optimizuje i time određuje tip klastera. Jedna čestica predstavlja niz centroida dužine k, zadate kao maksimalan broj klastera.
 U svakoj iteraciji algoritma se svakoj instanci iz skupa podataka dodeli klaster na osnovu najbližeg centroida. Funkcija udaljenosti se takođe prosleđuje algoritmu i od nje zavisi oblik klastera. Zatim se primenjuje funkcija kvaliteta i na osnovu pozicije najbolje čestice i najbolje pozicije trenutne čestice pomeri centroid svakoj čestici u skladu sa originalnim PSO (eng.~{\em Particle swarm optimization}) algoritmom.\\  
 Prikazani su eksperimenti na nekim od najpoznatijih skupova podataka. Predloženi algoritam je nadmašio algoritam K sredina.
-}
+\end{abstract}
+\bigskip
+\begin{abstractEN}
+In this paper, an algorithm for solving clustering problems based on particle swarm optimization \cite{pso} is proposed. The basic idea of algorithms, as with the K mean algorithm, is centroid \cite{kmeans}. The most important parameter of the algorithm is the cluster quality function which is optimized and thus determines the type of cluster. One particle represents a series of centroids of length k, given as the maximum number of clusters.
+In each iteration of the algorithm, each instance in the data set is assigned a cluster based on the nearest centroid. The distance function is also passed to the algorithm and the shape of the cluster depends on it. Then the quality function is applied and based on the position of the best particle and the best position of the current particle, the centroid moves to each particle in accordance with the original PSO (Particle swarm optimization) algorithm.
+Experiments on some of the most well-known data sets are presented. The proposed algorithm surpassed the K mean algorithm.
+\end{abstractEN}
 
-\setcounter{tocdepth}{1}
-%\tableofcontents
-
-%\newpage
+\newpage
 \section{Uvod}
 \label{sec:uvod}
 Klasterovanje je jedan od najpopularnijih problema nenadgledanog učenja.
@@ -94,7 +76,7 @@ Algoritam je primarno zasnovan na centroidama. Centroid jednoznačno određuje j
 Kod problema klasifikacije, koji je vid nadgledanog učenja, postoje dobro definisane funkcije koje nam mogu reći kakav je kvalitet dobijenog modela. To su pre svega tačnost i preciznost, mada postoje još neke poput f1 mere i odziva (eng.~{\em recall})  \cite{information}.\\
 
 Klasterovanje je problem nenadgledanog učenja,
- tako da za konkretno grupisanje ne postoje jednoznačne funkcije koje nam sa sigurnošću mogu reći koliko je ono dobro. Ipak, postoje neke funkcije, definisane tokom vremena od raznih istraživača, koje nam mogu dati ocenu kvaliteta klasterovanja \cite{dunn}\cite{ch_score}.
+ tako da za konkretno grupisanje ne postoje jednoznačne funkcije koje nam sa sigurnošću mogu reći koliko je ono dobro. Ipak, postoje neke funkcije, definisane tokom vremena od raznih istraživača, koje nam mogu dati ocenu kvaliteta klasterovanja \cite{db_index}\cite{ch_score}.
 
 Zanimljivo je primetiti, da iako na prvi pogled ne deluje tako, algoritam K sredina se takođe može posmatrati kao optimizacioni algoritam. Funkcija koju taj algoritam optimizuje je:
 %
@@ -267,9 +249,25 @@ U tabeli \ref{tab:wine} su prikazani rezultati izvršavanja PSO algoritma i algo
 \label{sec:zakljucak}
 U ovom radu predložen je PSO algoritam za rešavanje problema klasterovanja i predstavljeni su rezulati nad skupovima podataka Iris \cite{iris} i Wine \cite{uci_wine}. Predloženi su parametri razvijenog algoritma zasnovanog na optimizaciji rojem čestica za koje su dobijeni najbolji rezultati nad oba skupa podataka. Razvijeni algoritam je generički u smislu izbora funkcije koja je optimizuje i funkcije blizine dve instance, što omogućava da algoritam kao izlaz ima različite oblike i vrste klastera. Takođe, algoritam se može koristiti za određivanje broja klastera.\\
 Buduća istraživanja bi bila usmerena ka hibridizaciji algoritma sa drugim poznatim heurističkim algoritmima globalne optimizacije.
- 
-\addcontentsline{toc}{section}{Literatura}
-\appendix
-\bibliography{DenisAlicicPSOClustering} 
-\bibliographystyle{plain}
+
+%%
+%% Bibliografija
+%%
+
+\begin{thebibliography}{99}
+
+\bibitem{kmeans} Stuart P. Lloyd (1982). Least squares quantization in pcm.
+    IEEE Transactions on Information Theory, 129-137 vol 28.
+\bibitem{pso} Kennedy, J. and Eberhart, R. (1995). Particle swarm optimization. Proceedings of ICNN'95 - International Conference on Neural Networks, 1942-1948 vol.4.
+\bibitem{ch_score} Harabasz, Calinski T and Karo{\'n}ski, M. (1974). Communications in Statistics - A dendrite method for cluster analysis, 1-27 vol. 3.  
+\bibitem{db_index} David L. Davies and D. Bouldin (1979). A Cluster Separation Measure. IEEE Transactions on Pattern Analysis and Machine Intelligence, 224-227 vol. PAMI-1.
+\bibitem{iris} Edgar Anderson (1936). The Species Problem in Iris. Annals of the Missouri Botanical Garden, 457-509, vol. 23.
+\bibitem{ml_mladen} Nikolić M. (2019). Mašinsko učenje.  
+	http://ml.matf.bg.ac.rs/readings/ml.pdf.
+\bibitem{uci_iris} UCI Machine Learning repository: Iris data. https://archive.ics.uci.edu/ml/datasets/iris, accessed: 2021-06-14.
+\bibitem{uci_wine} UCI Machine Learning repository: Wine data. https://archive.ics.uci.edu/ml/datasets/wine, accessed: 2021-06-14.
+\bibitem{information} Jones, K Sparck and Van Rijsbergen, Cornelis Joost (1976). Information retrieval test collections. Journal of documentation, MCB UP Ltd.
+\end{thebibliography}
+
+
 \end{document}

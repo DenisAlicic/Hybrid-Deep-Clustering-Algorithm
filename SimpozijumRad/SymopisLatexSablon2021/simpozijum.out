@@ -1,0 +1,10 @@
+\BOOKMARK [1][-]{section.1}{Uvod}{}% 1
+\BOOKMARK [1][-]{section.2}{Klasterovanje kao optimizacioni problem}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Funkcije evaluacije}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Davies-Bouldin indeks}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Calinski-Harabasz indeks}{subsection.2.1}% 5
+\BOOKMARK [1][-]{section.3}{PSO algoritam}{}% 6
+\BOOKMARK [1][-]{section.4}{Eksperimentalni rezultati}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Iris}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Wine}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{Zakljucak}{}% 10

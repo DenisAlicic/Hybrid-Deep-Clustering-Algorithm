@@ -1,4 +1,19 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{uci_iris}
+{UCI Machine Learning repository: Iris data}.
+\newblock https://archive.ics.uci.edu/ml/datasets/iris.
+\newblock Accessed: 2021-06-14.
+
+\bibitem{uci_wine}
+{UCI Machine Learning repository: Wine data}.
+\newblock https://archive.ics.uci.edu/ml/datasets/wine.
+\newblock Accessed: 2021-06-14.
+
+\bibitem{iris}
+Edgar Anderson.
+\newblock The species problem in iris.
+\newblock {\em Annals of the Missouri Botanical Garden}, 23(3):457--509, 1936.
 
 \bibitem{db_index}
 David~L. Davies and D.~Bouldin.
@@ -16,11 +31,21 @@ Calinski~T Harabasz and M~Karo{\'n}ski.
 \newblock A dendrite method for cluster analysis.
 \newblock In {\em Communications in Statistics}, volume~3, pages 1--27. 1974.
 
+\bibitem{information}
+K~Sparck Jones and Cornelis~Joost Van~Rijsbergen.
+\newblock Information retrieval test collections.
+\newblock {\em Journal of documentation}, 1976.
+
 \bibitem{pso}
 J.~Kennedy and R.~Eberhart.
 \newblock Particle swarm optimization.
 \newblock In {\em Proceedings of ICNN'95 - International Conference on Neural
   Networks}, volume~4, pages 1942--1948 vol.4, 1995.
+
+\bibitem{kmeans}
+Stuart~P. Lloyd.
+\newblock Least squares quantization in pcm.
+\newblock {\em IEEE Transactions on Information Theory}, 28:129--137, 1982.
 
 \bibitem{ml_mladen}
 M.~Nikolić.
